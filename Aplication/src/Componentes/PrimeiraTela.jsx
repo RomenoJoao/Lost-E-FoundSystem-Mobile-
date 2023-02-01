@@ -2,11 +2,14 @@ import { View, StyleSheet, Image } from "react-native";
 
 
 
-
-export default function PrimeiraTela(){
+export default function PrimeiraTela({navigation}){
+      function openScreen(){
+        navigation.navigate('inicio')
+    }
+   
     return(
-        <View style={Estilo.fundo}>
-            <Image style={Estilo.contCenter} source={require('../imagens/Encontralogo.png')}></Image>
+        <View style={Estilo.fundo} onTouchStart={openScreen}>
+            <Image style={Estilo.contCenter}  source={require('../imagens/Encontralogo.png')}></Image>
         </View>
     )
 }

@@ -1,7 +1,16 @@
 
 import { View , StyleSheet , Text ,TextInput, Button, Image ,  ImageBackground } from "react-native";
-
+import React,{ useContext } from "react";
+import   Logar from "../contexts/Logando";
 export default function Login(){
+
+    const  signed = useContext(Logar);
+    const  entrar = useContext(Logar);
+    async function loga(){
+      entrar()
+        
+    }
+   
     return(
         <View style={loginStyle.container} >
             <ImageBackground style={loginStyle.img} source={require('../imagens/fundoMovel-1.jpg')}></ImageBackground>
@@ -11,7 +20,7 @@ export default function Login(){
                     <Image style={loginStyle.Logo} source={require('../imagens/Encontralogoy.png')}></Image>
                     <TextInput style={loginStyle.Tbox1} placeholder="Email instucional"></TextInput>
                     <TextInput  style={loginStyle.Tbox2} placeholder="Palavra-passe"></TextInput>
-                    <View style={loginStyle.bot}><Button color='white' title="Entrar"></Button></View>
+                    <View style={loginStyle.bot}><Button color='white' title="Entrar" onPress={loga}></Button></View>
             </View>
 
         </View>
@@ -28,15 +37,15 @@ const loginStyle= StyleSheet.create(
             justifyContent:'center',
             alignItems:'center'
         },
+
         bot:{
-            
             backgroundColor:'#ffd747',
             width:224,
             height:41,
             borderRadius:6,
             bottom: 40,
-        }
-        ,
+        },
+        
         Tbox1:{
             textAlign:'center',
             backgroundColor:'#fff',

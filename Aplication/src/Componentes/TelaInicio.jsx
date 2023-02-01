@@ -1,14 +1,30 @@
 import { ImageBackground ,View, StyleSheet, Text, Button } from "react-native"
 
-export default function TelaInicio(){
+
+
+
+
+
+
+
+export default function TelaInicio({navigation}){
+    function openScreen(){
+        navigation.navigate('Login')
+    }
+    function openScreen2(){
+        navigation.navigate('Cadastro')
+    }
+
     return(
         <View style={inicioStyle.princ}>
             <ImageBackground style={inicioStyle.img} source={require('../imagens/fundoMovel-1.jpg')}></ImageBackground>
            
             <View  style={inicioStyle.menB}>
                 
-                <View style={inicioStyle.btao}><Button  title="Iniciar Sessao" color='white'></Button></View>
-                <View style={inicioStyle.btao}><Button title="Registar" color='white'></Button></View>  
+                <View style={inicioStyle.btao}><Button  title="Iniciar Sessao"  color='white' onPress={openScreen}></Button></View>
+
+
+                <View style={inicioStyle.btao}><Button title="Registar" color='white' onPress={openScreen2}></Button></View>  
             </View>
 
         </View>
