@@ -1,8 +1,8 @@
 //import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import { Routes } from './src/routes';
-import Logar from './src/contexts/Logando';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer } from "@react-navigation/native";
+import { StyleSheet } from "react-native";
+import { AuthProvider } from "./src/contexts/Logando";
+import { Routes } from "./src/routes";
 
 //import PrimeiraTela from './Componentes/PrimeiraTela';
 //import TelaInicio from './Componentes/TelaInicio';
@@ -10,12 +10,11 @@ import { NavigationContainer } from '@react-navigation/native';
 //import Login from './Componentes/Login';
 //import { Routes } from './routes';
 export default function App() {
-  
   return (
     <NavigationContainer>
-      <Logar>
-          <Routes/>
-        </Logar>
+      <AuthProvider>
+        <Routes />
+      </AuthProvider>
     </NavigationContainer>
   );
 }
@@ -23,8 +22,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });

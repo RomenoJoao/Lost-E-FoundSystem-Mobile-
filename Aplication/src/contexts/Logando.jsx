@@ -1,25 +1,41 @@
-import React,{ createContext } from "react";
-import  * as  Logado  from "../services/Logado";
+import { createContext, useState } from "react";
 
+const AuthContext = createContext({});
 
+export const AuthProvider = ({ children }) => {
+  const [utilizador, setUtilizador] = useState(undefined);
 
-const Logar = createContext();
-export function LogProvider   ({children}) {
+  async function criarConta() {
+    // Implementar corpo. Pode alterar tudo que está aqui
 
-    async function entrar(){
+    // ...
 
-        const response = await Logado.Logado;
-        console.log(response)
+    // exemplo pode
+    setUtilizador({ email: "example@email.com" });
+  }
 
-    }
-    return(
+  async function iniciarSessao() {
+    // Implementar corpo. Pode alterar tudo que está aqui
+    setUtilizador({ email: "example@email.com" });
+  }
 
-        <Logar.Provider value={{signed: false, entrar}}>
-            {children}
-        </Logar.Provider>
-    )
- 
-    }
+  function finalizarSessao() {
+    // É só limpar o utilizador
+    setUtilizador(undefined);
+  }
 
-export default Logar; 
+  const contextValue = {
+    criarConta,
+    iniciarSessao,
+    finalizarSessao,
+    utilizador,
+    // Serve para saber se o utilizador está autenticado ou não
+    utilizadorAutenticado: !!utilizador,
+  };
 
+  return (
+    <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>
+  );
+};
+
+export default AuthContext;
