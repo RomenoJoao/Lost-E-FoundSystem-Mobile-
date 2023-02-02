@@ -5,18 +5,23 @@ const AuthContext = createContext({});
 export const AuthProvider = ({ children }) => {
   const [utilizador, setUtilizador] = useState(undefined);
 
-  async function criarConta() {
+  async function criarConta(email) {
     // Implementar corpo. Pode alterar tudo que está aqui
 
     // ...
 
-    // exemplo pode
-    setUtilizador({ email: "example@email.com" });
+    // exemplo
+    setUtilizador({ email });
   }
 
-  async function iniciarSessao() {
+  async function iniciarSessao(email) {
     // Implementar corpo. Pode alterar tudo que está aqui
-    setUtilizador({ email: "example@email.com" });
+
+    // ...
+
+    // exemplo
+    console.log(email);
+    setUtilizador({ email });
   }
 
   function finalizarSessao() {

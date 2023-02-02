@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useContext, useState } from "react";
 import {
   Button,
   Image,
@@ -8,36 +8,45 @@ import {
   TextInput,
   View,
 } from "react-native";
+import AuthContext from "../contexts/Logando";
 export default function Login(){
 
-    async function loga() {}
+  const { iniciarSessao } = useContext(AuthContext);
 
-    return (
-      <View style={loginStyle.container}>
-        <ImageBackground
-          style={loginStyle.img}
-          source={require("../imagens/fundoMovel-1.jpg")}
-        ></ImageBackground>
+  const [email, setEmail] = useState("");
 
-        <View style={loginStyle.loginForm}>
-          <Image
-            style={loginStyle.Logo}
-            source={require("../imagens/Encontralogoy.png")}
-          ></Image>
-          <TextInput
-            style={loginStyle.Tbox1}
-            placeholder="Email instucional"
-          ></TextInput>
-          <TextInput
-            style={loginStyle.Tbox2}
-            placeholder="Palavra-passe"
-          ></TextInput>
-          <View style={loginStyle.bot}>
-            <Button color="white" title="Entrar" onPress={loga}></Button>
-          </View>
+  async function login() {
+    if (email) await iniciarSessao(email);
+  }
+
+  return (
+    <View style={loginStyle.container}>
+      <ImageBackground
+        style={loginStyle.img}
+        source={require("../imagens/fundoMovel-1.jpg")}
+      ></ImageBackground>
+
+      <View style={loginStyle.loginForm}>
+        <Image
+          style={loginStyle.Logo}
+          source={require("../imagens/Encontralogoy.png")}
+        ></Image>
+        <TextInput
+          value={email}
+          onChangeText={setEmail}
+          style={loginStyle.Tbox1}
+          placeholder="Email instucional"
+        ></TextInput>
+        <TextInput
+          style={loginStyle.Tbox2}
+          placeholder="Palavra-passe"
+        ></TextInput>
+        <View style={loginStyle.bot}>
+          <Button color="white" title="Entrar" onPress={login}></Button>
         </View>
       </View>
-    );
+    </View>
+  );
 }
 
 
