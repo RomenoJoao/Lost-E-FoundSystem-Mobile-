@@ -13,9 +13,7 @@ export default function App() {
   
   return (
     <NavigationContainer>
-      <Logar>
           <Routes/>
-        </Logar>
     </NavigationContainer>
   );
 }

@@ -1,3 +1,6 @@
+
+
+/*
 import React,{ createContext } from "react";
 import  * as  Logado  from "../services/Logado";
 
@@ -23,3 +26,5 @@ export function LogProvider   ({children}) {
 
 export default Logar; 
 
+}
+*/
