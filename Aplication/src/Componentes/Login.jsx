@@ -3,9 +3,14 @@ import { View , StyleSheet , Text ,TextInput, Button, Image ,  ImageBackground }
 import React,{ useContext } from "react";
 export default function Login(){
 
+    function openScreen2() {
+      navigation.navigate("Cadastro");
+    }
 
    
     return(
+
+
         <View style={loginStyle.container} >
             <ImageBackground style={loginStyle.img} source={require('../imagens/fundoMovel-1.jpg')}></ImageBackground>
             
@@ -14,7 +19,7 @@ export default function Login(){
                     <Image style={loginStyle.Logo} source={require('../imagens/Encontralogoy.png')}></Image>
                     <TextInput style={loginStyle.Tbox1} placeholder="Email instucional"></TextInput>
                     <TextInput  style={loginStyle.Tbox2} placeholder="Palavra-passe"></TextInput>
-                    <View style={loginStyle.bot}><Button color='white' title="Entrar" ></Button></View>
+                    <View style={loginStyle.bot} ><Button color='white' onPress={openScreen2()} title="Entrar" ></Button></View>
             </View>
 
         </View>
