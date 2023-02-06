@@ -7,6 +7,7 @@ import TelaInicio from '../Componentes/TelaInicio';
 
  const {Screen, Navigator}= createBottomTabNavigator();
 import { MaterialIcons} from '@expo/vector-icons'
+
  export function TabRoutes(){
     return(
         <Navigator

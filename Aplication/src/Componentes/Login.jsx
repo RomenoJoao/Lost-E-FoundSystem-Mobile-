@@ -1,11 +1,19 @@
 
 import { View , StyleSheet , Text ,TextInput, Button, Image ,  ImageBackground } from "react-native";
 import React,{ useContext } from "react";
+<<<<<<< HEAD
+import teste from "./Teste"
+export default function Login({navigation}){
+  function openScreen(){
+    navigation.navigate('Teste')
+}
+=======
 export default function Login(){
 
     function openScreen2() {
       navigation.navigate("Cadastro");
     }
+>>>>>>> db578c2bd7fd2093af042f4ab55c2a3b6715b328
 
    
     return(
@@ -19,7 +27,11 @@ export default function Login(){
                     <Image style={loginStyle.Logo} source={require('../imagens/Encontralogoy.png')}></Image>
                     <TextInput style={loginStyle.Tbox1} placeholder="Email instucional"></TextInput>
                     <TextInput  style={loginStyle.Tbox2} placeholder="Palavra-passe"></TextInput>
+<<<<<<< HEAD
+                    <View style={loginStyle.bot}><Button color='white' title="Entrar" onPress={openScreen}></Button></View>
+=======
                     <View style={loginStyle.bot} ><Button color='white' onPress={openScreen2()} title="Entrar" ></Button></View>
+>>>>>>> db578c2bd7fd2093af042f4ab55c2a3b6715b328
             </View>
 
         </View>
