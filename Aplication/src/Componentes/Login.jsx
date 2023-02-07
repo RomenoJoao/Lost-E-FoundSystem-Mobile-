@@ -1,29 +1,58 @@
 
 import { View , StyleSheet , Text ,TextInput, Button, Image ,  ImageBackground } from "react-native";
-import React,{ useContext } from "react";
-export default function Login(){
+import { useState } from "react";
+import { api } from "../api/api";
+export default function Login({navigation}){
 
     function openScreen2() {
-      navigation.navigate("Cadastro");
+      navigation.navigate("Home");
     }
 
-   
-    return(
 
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+   async function verify({email,password}){
+      await  api.login({email,password})
+    }
 
-        <View style={loginStyle.container} >
-            <ImageBackground style={loginStyle.img} source={require('../imagens/fundoMovel-1.jpg')}></ImageBackground>
-            
-            <View style={loginStyle.loginForm}>
+    return (
+      <View style={loginStyle.container}>
+        <ImageBackground
+          style={loginStyle.img}
+          source={require("../imagens/fundoMovel-1.jpg")}
+        ></ImageBackground>
 
-                    <Image style={loginStyle.Logo} source={require('../imagens/Encontralogoy.png')}></Image>
-                    <TextInput style={loginStyle.Tbox1} placeholder="Email instucional"></TextInput>
-                    <TextInput  style={loginStyle.Tbox2} placeholder="Palavra-passe"></TextInput>
-                    <View style={loginStyle.bot} ><Button color='white' onPress={openScreen2()} title="Entrar" ></Button></View>
-            </View>
+        <View style={loginStyle.loginForm}>
+          <Image
+            style={loginStyle.Logo}
+            source={require("../imagens/Encontralogoy.png")}
+          ></Image>
+          <TextInput
+            style={loginStyle.Tbox1}
+            placeholder="Email instucional"
+            onChangeText={setEmail}
+          ></TextInput>
+          <TextInput
+            secureTextEntry
+            onChangeText={setPassword}
+            style={loginStyle.Tbox2}
+            placeholder="Palavra-passe"
+          ></TextInput>
+          <View style={loginStyle.bot}>
+            <Button
+              color="white"
+              onPress={()=> {
+                const response = verify({email,password})
+                console.log(response)
+               openScreen2()
+                }}
 
+              title="Entrar"
+            ></Button>
+          </View>
         </View>
-    )
+      </View>
+    );
 }
 
 

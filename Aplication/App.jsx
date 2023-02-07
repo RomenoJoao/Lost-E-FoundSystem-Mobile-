@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Routes } from './src/routes';
 //import Logar from './src/contexts/Logando';
 import { NavigationContainer } from '@react-navigation/native';
-import Home from './src/Componentes/Home'
+//import Home from './src/Componentes/Home'
 
 //import PrimeiraTela from './Componentes/PrimeiraTela';
 //import TelaInicio from './Componentes/TelaInicio';

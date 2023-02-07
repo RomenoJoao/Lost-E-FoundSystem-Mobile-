@@ -2,12 +2,12 @@ import {View , StyleSheet , Text ,TextInput, Button, Image ,  ImageBackground} f
 import FormCadastro from './FormCadastro'
 
 
-export default function Cadastro(){
+export default function Cadastro({navigation}){
     return(
         <View Style={styles.container}>
                  <ImageBackground style={styles.img} source={require('../imagens/fundoMovel-1.jpg')}></ImageBackground>
             <View style={styles.formPosition}>
-                <FormCadastro></FormCadastro>
+                <FormCadastro navigation={navigation}></FormCadastro>
             </View>
         </View>
     )

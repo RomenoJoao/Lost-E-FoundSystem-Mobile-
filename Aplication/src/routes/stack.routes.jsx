@@ -4,13 +4,18 @@ import Cadastro from '../Componentes/Cadastro';
 import Login from '../Componentes/Login';
 import TelaInicio from '../Componentes/TelaInicio';
 import PrimeiraTela from '../Componentes/PrimeiraTela';
+import { TabRoutes } from './tab.routes';
 
  const {Screen, Navigator}= createNativeStackNavigator();
 
  export function StackRoutes(){
     return(
 
-        <Navigator>
+        <Navigator
+        screenOptions={{
+            headerShown:false,
+        }}>
+
             <Screen
             name='first'
             options={{
@@ -41,6 +46,16 @@ import PrimeiraTela from '../Componentes/PrimeiraTela';
                 }
             }}
             component={Cadastro}/>
+            
+            <Screen
+            name='Home'
+
+            options={{
+                headerStyle:{
+                    backgroundColor:'#ffd747'
+                }
+            }}
+            component={TabRoutes}/>
 
             <Screen
             name='Login'
