@@ -29,8 +29,9 @@ export default class Achei extends Component {
         <View style={css.geral1}>
           <Button
             color="white"
-            onPress={() => {
+            onPress={() => {//adada
             }}
+
             title="Publicar"
           ></Button>
         </View>
